@@ -1,0 +1,13 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: 'app-of-apps'
+spec:
+  destination:
+    name: 'in-cluster'
+    namespace: 'argocd'
+  source:
+    path: 'apps/'
+    repoURL: 'ssh://root@10.5.1.15/root/argo-cd-learning-assets/'
+    targetRevision: HEAD
+  project: 'default'
